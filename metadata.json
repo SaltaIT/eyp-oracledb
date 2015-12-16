@@ -1,0 +1,22 @@
+{
+  "name": "eyp-oracledb",
+  "version": "0.1.5",
+  "author": "eyp",
+  "summary": "OracleDB role",
+  "license": "Apache-2.0",
+  "source": "",
+  "project_page": null,
+  "issues_url": null,
+  "dependencies": [
+    {"name":"puppetlabs/stdlib","version_requirement":">= 4.6.0"},
+    {"name":"puppetlabs/ntp","version_requirement":">= 4.1.0"},
+    {"name":"eyp/firewalld","version_requirement":">= 0.1.0"},
+    {"name":"eyp/tuned","version_requirement":">= 0.1.1"},
+    {"name":"eyp/grub2","version_requirement":">= 0.1.0"},
+    {"name":"eyp/chronyd","version_requirement":">= 0.1.0"},
+    {"name":"eyp/nscd","version_requirement":">= 0.1.0"},
+    {"name":"eyp/epel","version_requirement":">= 3.1.11"},
+    {"name":"eyp/selinux","version_requirement":">= 0.1.8"}
+
+  ]
+}
