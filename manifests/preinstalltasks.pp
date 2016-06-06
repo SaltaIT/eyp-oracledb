@@ -8,7 +8,7 @@ class oracledb::preinstalltasks (
 
   if($enabled)
   {
-    class { 'epel': }
+    include ::epel
 
     package { $oracledb_dependencies:
       ensure => 'installed',
