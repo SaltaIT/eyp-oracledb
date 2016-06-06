@@ -4,14 +4,17 @@ class oracledb::users (
                       $memlock           = ceiling(sprintf('%f', $::memorysize_mb)*921.6),
                       ) inherits oracledb::params {
 
-  #Hugepages
-  # * soft memlock 90% total memoria en KB
-  # * hard memlock 90% total memoria en KB
+  if($memlock!=undef)
+  {
+    #Hugepages
+    # * soft memlock 90% total memoria en KB
+    # * hard memlock 90% total memoria en KB
 
-  limits::limit { 'memlock *':
-    domain => '*',
-    item => 'memlock',
-    value => $memlock,
+    limits::limit { 'memlock *':
+      domain => '*',
+      item => 'memlock',
+      value => $memlock,
+    }  
   }
 
   #limits
