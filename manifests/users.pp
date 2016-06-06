@@ -9,6 +9,55 @@ class oracledb::users($griduser=false, $createoracleusers=true) inherits oracled
     value => '123456',
   }
 
+  #limits
+  # oracle              soft    nproc    2047
+  limits::limit { 'oracle soft nproc':
+    domain => 'oracle',
+    item => 'nproc',
+    value => '2047',
+    type => 'soft',
+  }
+
+  # oracle              hard   nproc   16384
+  limits::limit { 'oracle hard nproc':
+    domain => 'oracle',
+    item => 'nproc',
+    value => '16384',
+    type => 'hard',
+  }
+
+  # oracle              soft    nofile    1024
+  limits::limit { 'oracle soft nofile':
+    domain => 'oracle',
+    item => 'nofile',
+    value => '1024',
+    type => 'soft',
+  }
+
+  # oracle              hard   nofile    65536
+  limits::limit { 'oracle hard nofile':
+    domain => 'oracle',
+    item => 'nofile',
+    value => '65536',
+    type => 'hard',
+  }
+
+  # oracle              soft    stack    10240
+  # oracle              hard   stack    10240
+  limits::limit { 'stack *':
+    domain => '*',
+    item => 'stack',
+    value => '10240',
+  }
+
+  # oracle              soft    core    4194304
+  # oracle              hard    core    4194304
+  limits::limit { 'core *':
+    domain => '*',
+    item => 'core',
+    value => '4194304',
+  }
+
   if($createoracleusers)
   {
     # # RDBMS groups
@@ -44,55 +93,6 @@ class oracledb::users($griduser=false, $createoracleusers=true) inherits oracled
       home       => '/home/oracle',
       comment    => 'Oracle User',
       require    => Group[ [ 'dba', 'oinstall', 'oper' ] ],
-    }
-
-    #limits
-    # oracle              soft    nproc    2047
-    limits::limit { 'oracle soft nproc':
-      domain => 'oracle',
-      item => 'nproc',
-      value => '2047',
-      type => 'soft',
-    }
-
-    # oracle              hard   nproc   16384
-    limits::limit { 'oracle hard nproc':
-      domain => 'oracle',
-      item => 'nproc',
-      value => '16384',
-      type => 'hard',
-    }
-
-    # oracle              soft    nofile    1024
-    limits::limit { 'oracle soft nofile':
-      domain => 'oracle',
-      item => 'nofile',
-      value => '1024',
-      type => 'soft',
-    }
-
-    # oracle              hard   nofile    65536
-    limits::limit { 'oracle hard nofile':
-      domain => 'oracle',
-      item => 'nofile',
-      value => '65536',
-      type => 'hard',
-    }
-
-    # oracle              soft    stack    10240
-    # oracle              hard   stack    10240
-    limits::limit { 'stack *':
-      domain => '*',
-      item => 'stack',
-      value => '10240',
-    }
-
-    # oracle              soft    core    4194304
-    # oracle              hard    core    4194304
-    limits::limit { 'core *':
-      domain => '*',
-      item => 'core',
-      value => '4194304',
     }
 
     if($griduser)
