@@ -13,6 +13,8 @@ class oracledb(
                 $preinstallchecks=true,
               ) inherits oracledb::params {
 
+  include ::limits
+
   class { 'oracledb::users':
     griduser          => $griduser,
     createoracleusers => $createoracleusers,
