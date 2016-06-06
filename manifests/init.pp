@@ -31,7 +31,7 @@ class oracledb(
   if($preinstallchecks)
   {
     class { 'oracledb::preinstallchecks':
-      #before
+      require => Class['oracledb::preinstalltasks'],
     }
   }
 
