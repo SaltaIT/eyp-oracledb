@@ -1,6 +1,6 @@
 {
   "name": "eyp-oracledb",
-  "version": "0.1.12",
+  "version": "0.1.14",
   "author": "eyp",
   "summary": "OracleDB role",
   "license": "Apache-2.0",

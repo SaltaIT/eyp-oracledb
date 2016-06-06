@@ -1,12 +1,17 @@
-class oracledb::users($griduser=false, $createoracleusers=true) inherits oracledb::params {
+class oracledb::users (
+                      $griduser          = false,
+                      $createoracleusers = true,
+                      $memlock           = ceiling(sprintf('%f', $::memorysize_mb)*921.6),
+                      ) inherits oracledb::params {
 
   #Hugepages
   # * soft memlock 90% total memoria en KB
   # * hard memlock 90% total memoria en KB
+
   limits::limit { 'memlock *':
     domain => '*',
     item => 'memlock',
-    value => '123456',
+    value => $memlock,
   }
 
   #limits
