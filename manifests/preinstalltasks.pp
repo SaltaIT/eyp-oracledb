@@ -26,9 +26,7 @@ class oracledb::preinstalltasks (
 
     class { 'nscd': }
 
-    class { 'selinux':
-      mode => 'disabled',
-    }
+    include ::selinux
 
     class { 'grub2':
       transparent_huge_pages => 'never',
