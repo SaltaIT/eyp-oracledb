@@ -3,7 +3,7 @@
 # Copyright 2015 Your name here, unless otherwise noted.
 #
 class oracledb(
-                $memory_target,
+                $memory_target     = '1G',
                 $manage_ntp        = true,
                 $manage_tmpfs      = true,
                 $ntp_servers       = undef,

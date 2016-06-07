@@ -1,9 +1,9 @@
 class oracledb::preinstalltasks (
-                                  $memory_target,
-                                  $enabled=true,
-                                  $manage_ntp=true,
-                                  $ntp_servers=undef,
-                                  $manage_tmpfs=true,
+                                  $memory_target = '1G',
+                                  $enabled       = true,
+                                  $manage_ntp    = true,
+                                  $ntp_servers   = undef,
+                                  $manage_tmpfs  = true,
                                 ) inherits oracledb::params {
 
   if($enabled)
@@ -11,7 +11,7 @@ class oracledb::preinstalltasks (
     include ::epel
 
     package { $oracledb_dependencies:
-      ensure => 'installed',
+      ensure  => 'installed',
       require => Class['epel'],
     }
 
@@ -169,10 +169,10 @@ class oracledb::preinstalltasks (
     # tmpfs                   /dev/shm                tmpfs   defaults,size=2200m        0 0
     # ...
     mount { '/dev/shm':
-      ensure   => mounted,
-      device   => "none",
-      fstype   => 'tmpfs',
-      options  => "size=${memory_target}",
+      ensure  => mounted,
+      device  => 'none',
+      fstype  => 'tmpfs',
+      options => "size=${memory_target}",
     }
 
 

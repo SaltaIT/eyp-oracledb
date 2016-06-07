@@ -21,14 +21,14 @@ class oracledb::params {
                                     'mpfr', 'tigervnc-server',
                                     'xterm', 'xorg-x11-utils', 'nfs-utils' ]
         }
-        default: { fail("Unsupported RHEL/CentOS version! - $::operatingsystemrelease")  }
+        default: { fail("Unsupported RHEL/CentOS version! - ${::operatingsystemrelease}")  }
       }
 
     }
     'Debian':
     {
-      fail("Unsupported")
+      fail('Unsupported')
     }
-    default: { fail("Unsupported OS!")  }
+    default: { fail('Unsupported OS!')  }
   }
 }
