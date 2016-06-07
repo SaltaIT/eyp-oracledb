@@ -142,7 +142,7 @@ class oracledb::preinstalltasks (
     # kernel.hostname =  hostname
 
     sysctl::set { 'kernel.hostname':
-      value => $::hostname,
+      value => $::fqdn,
     }
 
     # vm.nr_hugepages= (60% memoria total en MB / 2) +2
