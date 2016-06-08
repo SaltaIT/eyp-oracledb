@@ -76,7 +76,7 @@ class oracledb::preinstalltasks (
     }
 
     sysctl::set { 'kernel.sem':
-      value => '250 32000 100 128',
+      value => "250\t32000\t100\t128",
     }
 
     # shmmax = 50% de la memoria total en bytes
