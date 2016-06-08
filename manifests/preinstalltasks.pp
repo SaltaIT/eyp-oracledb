@@ -148,7 +148,7 @@ class oracledb::preinstalltasks (
     # vm.nr_hugepages= (60% memoria total en MB / 2) +2
 
     sysctl::set { 'vm.nr_hugepages':
-      value => ceiling(sprintf('%f', $::memorysize_mb)/2)+2,
+      value => ceiling(sprintf('%f', $::memorysize_mb)*0.3)+2,
     }
 
 
