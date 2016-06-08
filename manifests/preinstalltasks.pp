@@ -151,6 +151,12 @@ class oracledb::preinstalltasks (
       value => ceiling(sprintf('%f', $::memorysize_mb)*0.3)+2,
     }
 
+    # net.ipv4.ip_local_port_range = 9000 65500
+
+    sysctl::set { 'net.ipv4.ip_local_port_range':
+      value => "9000\t65500",
+    }
+
 
     $current_mode = $::selinux? {
       'false' => 'disabled',
