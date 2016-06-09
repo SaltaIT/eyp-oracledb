@@ -52,16 +52,16 @@ class oracledb::users (
 
   # oracle              soft    stack    10240
   # oracle              hard   stack    10240
-  limits::limit { 'stack *':
-    domain => '*',
+  limits::limit { 'stack oracle':
+    domain => 'oracle',
     item   => 'stack',
     value  => '10240',
   }
 
   # oracle              soft    core    4194304
   # oracle              hard    core    4194304
-  limits::limit { 'core *':
-    domain => '*',
+  limits::limit { 'core oracle':
+    domain => 'oracle',
     item   => 'core',
     value  => '4194304',
   }
