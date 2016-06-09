@@ -79,16 +79,13 @@ class oracledb::preinstalltasks (
       value => "250\t32000\t100\t128",
     }
 
-    # menys de 16G
-    # shmmax = 50% de la memoria total en bytes
-    # mes de 16G
-    # shmmax = 50% de la memoria total en bytes
-    # 786432
-
-    # shmall = shmmax/kernel.shmmni
-
     if($::memorysize_mb>=16384)
     {
+      # mes de 16G
+      # shmmax = 50% de la memoria total en bytes
+
+      # shmall = shmmax/kernel.shmmni
+
       sysctl::set { 'kernel.shmmax':
         value => ceiling(sprintf('%f', $::memorysize_mb)*786432),
       }
@@ -99,6 +96,11 @@ class oracledb::preinstalltasks (
     }
     else
     {
+      # menys de 16G
+      # shmmax = 50% de la memoria total en bytes
+
+      # shmall = shmmax/kernel.shmmni
+
       sysctl::set { 'kernel.shmmax':
         value => ceiling(sprintf('%f', $::memorysize_mb)*524288),
       }
