@@ -5,8 +5,8 @@
   "summary": "OracleDB role",
   "license": "Apache-2.0",
   "source": "",
-  "project_page": null,
-  "issues_url": null,
+  "project_page": "https://github.com/NTTCom-MS/eyp-oracledb",
+  "issues_url": "https://github.com/NTTCom-MS/eyp-oracledb/issues",
   "dependencies": [
     {"name":"puppetlabs/stdlib","version_requirement":">= 4.6.0"},
     {"name":"eyp/ntp","version_requirement":">= 0.1.0"},
