@@ -4,6 +4,10 @@ class oracledb::users (
                       $memlock           = ceiling(sprintf('%f', $::memorysize_mb)*921.6),
                       ) inherits oracledb::params {
 
+  Exec {
+    path => '/bin:/sbin:/usr/bin:/usr/sbin',
+  }
+
   if($memlock!=undef)
   {
     #Hugepages
@@ -15,6 +19,11 @@ class oracledb::users (
       item   => 'memlock',
       value  => $memlock,
     }
+  }
+
+  exec { 'oracle ulimits':
+    command => 'echo -e "\n\n\n#EYP-ORACLEDB SET ULIMIT\n\nif [ \$USER = \"oracle\" ]; then\n if [ $SHELL = \"/bin/ksh\" ]; then\n ulimit -p 16384\n ulimit -n 65536\n else\n ulimit -u 16384 -n 65536\n fi\nfi" >> /etc/profile',
+    unless  => 'grep "EYP-ORACLEDB SET ULIMIT" /etc/profile';
   }
 
   #limits
