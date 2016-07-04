@@ -26,7 +26,7 @@ intended to install OracleDB (it actually does not install oracle, just sets pre
 ### What oracledb affects
 
 * creates oracle and, optionally, grid users
-* following modules are used to change system's settings:
+* this module is a ROLE thus uses other modules to achive it's goals
   * eyp/ntp
   * eyp/firewalld
   * eyp/tuned
@@ -45,11 +45,7 @@ This module requires pluginsync enabled
 
 ### Beginning with oracledb
 
-The very basic steps needed for a user to get the module up and running.
 
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
 
 ## Usage
 
