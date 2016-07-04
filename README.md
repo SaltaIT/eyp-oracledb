@@ -26,7 +26,7 @@ intended to install OracleDB (it actually does not install oracle, just sets pre
 ### What oracledb affects
 
 * creates oracle and, optionally, grid users
-* this module is a ROLE thus uses other modules to achive it's goals
+* this module is a ROLE thus uses other modules to achive it's goals:
   * eyp/ntp
   * eyp/firewalld
   * eyp/tuned
@@ -37,7 +37,7 @@ intended to install OracleDB (it actually does not install oracle, just sets pre
   * eyp/selinux
   * eyp/limits
   * eyp/sysctl
-    * **WARNING**: some sysctl settings are automatically calculated using system's memory, on a shared server it might hurt performace or trigger OOM-killer
+    * **WARNING**: some sysctl settings are automatically calculated using system's memory, on a shared server it might **hurt performace** or trigger **OOM-killer**
 
 ### Setup Requirements
 
@@ -45,7 +45,7 @@ This module requires pluginsync enabled
 
 ### Beginning with oracledb
 
-
+This module performs, so far, an initial setup to be able to install OracleDB
 
 ## Usage
 
