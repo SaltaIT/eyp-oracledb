@@ -16,9 +16,7 @@ class oracledb::preinstalltasks (
     }
 
     #firewalld
-    class { 'firewalld':
-      ensure => 'masked',
-    }
+    include firewalld
 
     class { 'chronyd':
       ensure => 'masked',
