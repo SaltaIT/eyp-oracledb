@@ -8,13 +8,15 @@ class oracledb::users (
     path => '/bin:/sbin:/usr/bin:/usr/sbin',
   }
 
+  include ::pam
+
   if($memlock!=undef)
   {
     #Hugepages
     # * soft memlock 90% total memoria en KB
     # * hard memlock 90% total memoria en KB
 
-    limits::limit { 'memlock *':
+    pam::limit { 'memlock *':
       domain => '*',
       item   => 'memlock',
       value  => $memlock,
@@ -28,7 +30,7 @@ class oracledb::users (
 
   #limits
   # oracle              soft    nproc    2047
-  limits::limit { 'oracle soft nproc':
+  pam::limit { 'oracle soft nproc':
     domain => 'oracle',
     item   => 'nproc',
     value  => '2047',
@@ -36,7 +38,7 @@ class oracledb::users (
   }
 
   # oracle              hard   nproc   16384
-  limits::limit { 'oracle hard nproc':
+  pam::limit { 'oracle hard nproc':
     domain => 'oracle',
     item   => 'nproc',
     value  => '16384',
@@ -44,7 +46,7 @@ class oracledb::users (
   }
 
   # oracle              soft    nofile    1024
-  limits::limit { 'oracle soft nofile':
+  pam::limit { 'oracle soft nofile':
     domain => 'oracle',
     item   => 'nofile',
     value  => '1024',
@@ -52,7 +54,7 @@ class oracledb::users (
   }
 
   # oracle              hard   nofile    65536
-  limits::limit { 'oracle hard nofile':
+  pam::limit { 'oracle hard nofile':
     domain => 'oracle',
     item   => 'nofile',
     value  => '65536',
@@ -61,7 +63,7 @@ class oracledb::users (
 
   # oracle              soft    stack    10240
   # oracle              hard   stack    10240
-  limits::limit { 'stack oracle':
+  pam::limit { 'stack oracle':
     domain => 'oracle',
     item   => 'stack',
     value  => '10240',
@@ -69,7 +71,7 @@ class oracledb::users (
 
   # oracle              soft    core    4194304
   # oracle              hard    core    4194304
-  limits::limit { 'core oracle':
+  pam::limit { 'core oracle':
     domain => 'oracle',
     item   => 'core',
     value  => '4194304',
@@ -150,7 +152,7 @@ class oracledb::users (
 
       #limits
       # grid  soft    nofile    1024
-      limits::limit { 'grid soft nofile':
+      pam::limit { 'grid soft nofile':
         domain => 'grid',
         item   => 'nofile',
         value  => '1024',
@@ -158,7 +160,7 @@ class oracledb::users (
       }
 
       # grid  hard  nofile  65536
-      limits::limit { 'grid hard nofile':
+      pam::limit { 'grid hard nofile':
         domain => 'grid',
         item   => 'nofile',
         value  => '65536',
