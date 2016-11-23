@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 0.1.32
+## 0.1.33
 
 * temporal bugfix for shm
 
