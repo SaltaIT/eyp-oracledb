@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.32
+
+* temporal bugfix for shm
+
 ## 0.1.31
 
 * eyp-limits to eyp-pam

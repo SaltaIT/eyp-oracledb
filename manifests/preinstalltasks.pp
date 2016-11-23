@@ -192,14 +192,23 @@ class oracledb::preinstalltasks (
     # ...
     # tmpfs                   /dev/shm                tmpfs   defaults,size=2200m        0 0
     # ...
-    mount { '/dev/shm':
-      ensure  => mounted,
-      device  => 'none',
-      fstype  => 'tmpfs',
-      options => "size=${memory_target}",
+    if(!defined(Mount['/dev/shm']))
+    {
+      $shm_options=getparam(Mount['/dev/shm'], "options")
+
+      Mount['/dev/shm'] {
+        options => "${shm_options},size=${memory_target}",
+      }
     }
-
-
+    else
+    {
+      mount { '/dev/shm':
+        ensure  => mounted,
+        device  => 'none',
+        fstype  => 'tmpfs',
+        options => "size=${memory_target}",
+      }
+    }
 
     # Configure ntpd service
     #
