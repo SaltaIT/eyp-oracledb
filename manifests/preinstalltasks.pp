@@ -207,7 +207,7 @@ class oracledb::preinstalltasks (
     else
     {
       mount { '/dev/shm':
-        ensure  => mounted,
+        ensure  => 'mounted',
         device  => 'none',
         fstype  => 'tmpfs',
         options => "size=${memory_target}",
