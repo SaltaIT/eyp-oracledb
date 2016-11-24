@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.34
+
+* permanent bufix for shm
+
 ## 0.1.33
 
 * temporal bugfix for shm

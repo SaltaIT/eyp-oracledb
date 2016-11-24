@@ -194,7 +194,11 @@ class oracledb::preinstalltasks (
     # ...
     if(defined(Mount['/dev/shm']))
     {
-      # $shm_options=getparam(Mount['/dev/shm'], "options")
+      $shm_options=getparam(Mount['/dev/shm'], "options")
+
+      File <| title == '/dev/shm' |> {
+        options => "${shm_options},size=${memory_target}",
+      }
       #
       # Mount['/dev/shm'] {
       #   options => "${shm_options},size=${memory_target}",
