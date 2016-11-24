@@ -212,6 +212,13 @@ class oracledb::preinstalltasks (
         fstype  => 'tmpfs',
         options => "size=${memory_target}",
       }
+
+      if($oracledb::add_stage)
+      {
+        Mount['/dev/shm'] {
+          stage => 'eyp-oracle-db',
+        }
+      }
     }
 
     # Configure ntpd service
