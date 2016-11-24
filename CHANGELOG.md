@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.35
+
+* adding specific stage for oracledb
+
 ## 0.1.34
 
 * permanent bufix for shm

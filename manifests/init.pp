@@ -11,9 +11,21 @@ class oracledb(
                 $createoracleusers = true,
                 $griduser          = true,
                 $preinstallchecks  = true,
+                $add_stage         = true,
               ) inherits oracledb::params {
 
-  class { 'oracledb::users':
+  if($add_stage)
+  {
+    stage { 'eyp-oracle-db': }
+
+    Stage['main'] -> Stage['eyp-oracle-db']
+
+    Class['::oracledb::users'] {
+      stage => 'eyp-oracle-db',
+    }
+  }
+
+  class { '::oracledb::users':
     griduser          => $griduser,
     createoracleusers => $createoracleusers,
   }
