@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 0.1.36
+## 0.1.37
 
 * adding specific stage for oracledb
 
