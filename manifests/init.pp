@@ -3,15 +3,19 @@
 # Copyright 2015 Your name here, unless otherwise noted.
 #
 class oracledb(
-                $memory_target     = '1G',
-                $manage_ntp        = true,
-                $manage_tmpfs      = true,
-                $ntp_servers       = undef,
-                $preinstalltasks   = true,
-                $createoracleusers = true,
-                $griduser          = true,
-                $preinstallchecks  = true,
-                $add_stage         = true,
+                $memory_target                = '1G',
+                $manage_ntp                   = true,
+                $manage_tmpfs                 = true,
+                $ntp_servers                  = undef,
+                $preinstalltasks              = true,
+                $createoracleusers            = true,
+                $griduser                     = true,
+                $preinstallchecks             = true,
+                $add_stage                    = true,
+                $kernel_sem                   = "250\t32000\t100\t128",
+                $fs_file_max                  = '6815744',
+                $net_ipv4_ip_local_port_range = "9000\t65500",
+                $kernel_shmmni                = '4096',
               ) inherits oracledb::params {
 
   if($add_stage)

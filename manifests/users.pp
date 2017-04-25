@@ -1,8 +1,8 @@
 class oracledb::users (
-                      $griduser          = false,
-                      $createoracleusers = true,
-                      $memlock           = ceiling(sprintf('%f', $::memorysize_mb)*921.6),
-                      ) inherits oracledb::params {
+                        $griduser          = false,
+                        $createoracleusers = true,
+                        $memlock           = ceiling(sprintf('%f', $::memorysize_mb)*921.6),
+                      ) inherits oracledb {
 
   Exec {
     path => '/bin:/sbin:/usr/bin:/usr/sbin',
