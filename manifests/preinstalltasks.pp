@@ -2,6 +2,7 @@ class oracledb::preinstalltasks (
                                   $memory_target = '1G',
                                   $enabled       = true,
                                   $manage_ntp    = true,
+                                  $manage_grub   = true,
                                   $ntp_servers   = undef,
                                   $manage_tmpfs  = true,
                                 ) inherits oracledb {
@@ -26,8 +27,11 @@ class oracledb::preinstalltasks (
 
     include ::selinux
 
-    class { 'grub2':
-      transparent_huge_pages => 'never',
+    if($manage_grub)
+    {
+      class { 'grub2':
+        transparent_huge_pages => 'never',
+      }
     }
 
     class { 'tuned': }

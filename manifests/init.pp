@@ -1,10 +1,7 @@
-# === Copyright
-#
-# Copyright 2015 Your name here, unless otherwise noted.
-#
 class oracledb(
                 $memory_target                = '1G',
                 $manage_ntp                   = true,
+                $manage_grub                  = true,
                 $manage_tmpfs                 = true,
                 $ntp_servers                  = undef,
                 $preinstalltasks              = true,
@@ -40,6 +37,7 @@ class oracledb(
     enabled       => $preinstalltasks,
     memory_target => $memory_target,
     manage_ntp    => $manage_ntp,
+    manage_grub   => $manage_grub,
     manage_tmpfs  => $manage_tmpfs,
     ntp_servers   => $ntp_servers,
   }
