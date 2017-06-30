@@ -3,6 +3,9 @@
 ## 0.2.2
 
 * added a flag to disable grub management
+* added variables:
+  * kernel_shmall
+  * kernel_shmmax
 
 ## 0.2.1
 

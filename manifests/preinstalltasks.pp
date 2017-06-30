@@ -92,8 +92,17 @@ class oracledb::preinstalltasks (
         value => ceiling(sprintf('%f', $::memorysize_mb)*786432),
       }
 
+      if($oracledb::kernel_shmall!=undef)
+      {
+        $kernel_shmall_value = $oracledb::kernel_shmall
+      }
+      else
+      {
+        $kernel_shmall_value = ceiling(ceiling(sprintf('%f', $::memorysize_mb)*786432)/4096)
+      }
+
       sysctl::set { 'kernel.shmall':
-        value => ceiling(ceiling(sprintf('%f', $::memorysize_mb)*786432)/4096),
+        value => $kernel_shmall_value,
       }
     }
     else
@@ -103,8 +112,17 @@ class oracledb::preinstalltasks (
 
       # shmall = shmmax/kernel.shmmni
 
+      if($oracledb::kernel_shmmax!=undef)
+      {
+        $kernel_shmmax_value = $oracledb::kernel_shmmax
+      }
+      else
+      {
+        $kernel_shmmax_value = ceiling(sprintf('%f', $::memorysize_mb)*524288)
+      }
+
       sysctl::set { 'kernel.shmmax':
-        value => ceiling(sprintf('%f', $::memorysize_mb)*524288),
+        value => $kernel_shmmax_value,
       }
 
       sysctl::set { 'kernel.shmall':

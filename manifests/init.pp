@@ -9,10 +9,12 @@ class oracledb(
                 $griduser                     = true,
                 $preinstallchecks             = true,
                 $add_stage                    = true,
-                $kernel_sem                   = "250\t32000\t100\t128",
                 $fs_file_max                  = '6815744',
                 $net_ipv4_ip_local_port_range = "9000\t65500",
+                $kernel_sem                   = "250\t32000\t100\t128",
                 $kernel_shmmni                = '4096',
+                $kernel_shmall                = undef,
+                $kernel_shmmax                = undef,
               ) inherits oracledb::params {
 
   if($add_stage)
