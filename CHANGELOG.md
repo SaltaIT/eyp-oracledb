@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.3
+
+* bugfix tmpfs
+
 ## 0.2.2
 
 * added a flag to disable grub management
