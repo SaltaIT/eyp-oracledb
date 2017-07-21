@@ -3,6 +3,7 @@
 ## 0.2.3
 
 * bugfix tmpfs
+* metadata lint
 
 ## 0.2.2
 
