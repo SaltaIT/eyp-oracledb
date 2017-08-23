@@ -19,7 +19,6 @@
     {"name":"eyp/selinux","version_requirement":">= 0.1.8 < 0.2.0"},
     {"name":"eyp/pam","version_requirement":">= 0.1.2 < 0.2.0"},
     {"name":"eyp/sysctl","version_requirement":">= 0.2.10 < 0.4.0"}
-
   ],
   "operatingsystem_support": [
     {
