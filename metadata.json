@@ -11,7 +11,7 @@
     {"name":"puppetlabs/stdlib","version_requirement":">= 4.6.0 < 9.9.9"},
     {"name":"eyp/ntp","version_requirement":">= 0.1.0 < 0.2.0"},
     {"name":"eyp/firewalld","version_requirement":">= 0.1.0 < 0.2.0"},
-    {"name":"eyp/tuned","version_requirement":">= 0.1.1 < 0.2.0"},
+    {"name":"eyp/tuned","version_requirement":">= 0.1.1 < 0.3.0"},
     {"name":"eyp/grub2","version_requirement":">= 0.1.6 < 0.2.0"},
     {"name":"eyp/chronyd","version_requirement":">= 0.1.0 < 0.2.0"},
     {"name":"eyp/nscd","version_requirement":">= 0.1.0 < 0.2.0"},
