@@ -166,7 +166,6 @@ class oracledb::users (
         value  => '65536',
         type   => 'hard',
       }
-
     }
   }
 }
