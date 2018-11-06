@@ -1,4 +1,4 @@
-class oracledb::preinstallchecks() inherits oracledb {
+class oracledb::preinstallchecks inherits oracledb {
 
   $current_mode = $::selinux? {
     'false' => 'disabled',

@@ -50,7 +50,4 @@ class oracledb(
       require => Class['oracledb::preinstalltasks'],
     }
   }
-
-
-
 }
