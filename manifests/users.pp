@@ -1,8 +1,4 @@
-class oracledb::users (
-                        $griduser          = false,
-                        $createoracleusers = true,
-                        $memlock           = ceiling(sprintf('%f', $::memorysize_mb)*921.6),
-                      ) inherits oracledb {
+class oracledb::users inherits oracledb {
 
   Exec {
     path => '/bin:/sbin:/usr/bin:/usr/sbin',
@@ -10,7 +6,7 @@ class oracledb::users (
 
   include ::pam
 
-  if($memlock!=undef)
+  if($oracledb::memlock!=undef)
   {
     #Hugepages
     # * soft memlock 90% total memoria en KB
@@ -19,7 +15,7 @@ class oracledb::users (
     pam::limit { 'memlock *':
       domain => '*',
       item   => 'memlock',
-      value  => $memlock,
+      value  => $oracledb::memlock,
     }
   }
 
@@ -77,7 +73,7 @@ class oracledb::users (
     value  => '4194304',
   }
 
-  if($createoracleusers)
+  if($oracledb::createoracleusers)
   {
     # # RDBMS groups
     # groupadd -g 10000 dba
@@ -114,7 +110,7 @@ class oracledb::users (
       require    => Group[ [ 'dba', 'oinstall', 'oper' ] ],
     }
 
-    if($griduser)
+    if($oracledb::griduser)
     {
 
       # # GI groups

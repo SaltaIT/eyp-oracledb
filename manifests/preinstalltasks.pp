@@ -1,13 +1,12 @@
 class oracledb::preinstalltasks (
                                   $memory_target = '1G',
-                                  $enabled       = true,
                                   $manage_ntp    = true,
                                   $manage_grub   = true,
                                   $ntp_servers   = undef,
                                   $manage_tmpfs  = true,
                                 ) inherits oracledb {
 
-  if($enabled)
+  if($oracledb::preinstalltasks)
   {
     include ::epel
 
