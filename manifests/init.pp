@@ -35,14 +35,7 @@ class oracledb(
 
   ->
 
-  class { 'oracledb::preinstalltasks':
-    enabled       => $preinstalltasks,
-    memory_target => $memory_target,
-    manage_ntp    => $manage_ntp,
-    manage_grub   => $manage_grub,
-    manage_tmpfs  => $manage_tmpfs,
-    ntp_servers   => $ntp_servers,
-  }
+  class { 'oracledb::preinstalltasks': }
 
   if($preinstallchecks)
   {
