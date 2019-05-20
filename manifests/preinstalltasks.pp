@@ -145,7 +145,7 @@ class oracledb::preinstalltasks inherits oracledb {
     # fs.aio-max-nr      =    1048576
 
     sysctl::set { 'fs.aio-max-nr':
-      value => '1048576',
+      value => $oracledb::fs_aio_max_nr,
     }
 
     # net.core.rmem_default    =     262144
@@ -236,7 +236,7 @@ class oracledb::preinstalltasks inherits oracledb {
             stage => 'eyp-oracle-db',
           }
         }
-      }  
+      }
     }
 
     # Configure ntpd service

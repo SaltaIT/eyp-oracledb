@@ -14,10 +14,11 @@ class oracledb(
                 $kernel_shmmax                = undef,
                 # preuinstall tasks
                 $preinstalltasks              = true,
+                $fs_aio_max_nr                = '1048576',
                 #users
                 $griduser                     = true,
-                $createoracleusers = true,
-                $memlock           = ceiling(sprintf('%f', $::memorysize_mb)*921.6),
+                $createoracleusers            = true,
+                $memlock                      = ceiling(sprintf('%f', $::memorysize_mb)*921.6),
               ) inherits oracledb::params {
 
   if($add_stage)
