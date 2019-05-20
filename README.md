@@ -1,6 +1,6 @@
 # oracledb
 
-![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+**NTTCom-MS/eyp-oracledb**: [![Build Status](https://travis-ci.org/NTTCom-MS/eyp-oracledb.png?branch=master)](https://travis-ci.org/NTTCom-MS/eyp-oracledb)
 
 #### Table of Contents
 
