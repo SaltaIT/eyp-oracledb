@@ -18,6 +18,10 @@ class oracledb(
                 #users
                 $griduser                     = true,
                 $createoracleusers            = true,
+                $limit_soft_nofile_grid       = '1024',
+                $limit_soft_nofile_oracle     = '1024',
+                $limit_soft_nproc_oracle      = '2047',
+                #
                 $memlock                      = ceiling(sprintf('%f', $::memorysize_mb)*921.6),
               ) inherits oracledb::params {
 

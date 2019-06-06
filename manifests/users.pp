@@ -29,7 +29,7 @@ class oracledb::users inherits oracledb {
   pam::limit { 'oracle soft nproc':
     domain => 'oracle',
     item   => 'nproc',
-    value  => '2047',
+    value  => $oracledb::limit_soft_nproc_oracle,
     type   => 'soft',
   }
 
@@ -45,7 +45,7 @@ class oracledb::users inherits oracledb {
   pam::limit { 'oracle soft nofile':
     domain => 'oracle',
     item   => 'nofile',
-    value  => '1024',
+    value  => $oracledb::limit_soft_nofile_oracle,
     type   => 'soft',
   }
 
@@ -151,7 +151,7 @@ class oracledb::users inherits oracledb {
       pam::limit { 'grid soft nofile':
         domain => 'grid',
         item   => 'nofile',
-        value  => '1024',
+        value  => $oracledb::limit_soft_nofile_grid,
         type   => 'soft',
       }
 

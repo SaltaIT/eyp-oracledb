@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.2.5
+
+* added configurable limits:
+  - limit_soft_nofile_grid
+  - limit_soft_nofile_oracle
+  - limit_soft_nproc_oracle
+
 ## 0.2.4
 
 * rework class variables
