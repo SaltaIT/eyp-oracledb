@@ -67,7 +67,7 @@ class oracledb::preinstalltasks inherits oracledb {
     }
 
     sysctl::set { 'kernel.randomize_va_space':
-      value => $sysctl_kernel_randomize_va_space,
+      value => $oracledb::sysctl_kernel_randomize_va_space,
     }
 
     sysctl::set { 'kernel.sem':
@@ -82,7 +82,7 @@ class oracledb::preinstalltasks inherits oracledb {
       # shmall = shmmax/kernel.shmmni
 
       sysctl::set { 'kernel.shmmax':
-        value => $sysctl_kernel_shmmax,
+        value => $oracledb::sysctl_kernel_shmmax,
       }
 
       if($oracledb::kernel_shmall!=undef)
