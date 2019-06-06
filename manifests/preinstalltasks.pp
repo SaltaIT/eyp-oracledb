@@ -10,13 +10,13 @@ class oracledb::preinstalltasks inherits oracledb {
     }
 
     #firewalld
-    include firewalld
+    include ::firewalld
 
     class { 'chronyd':
       ensure => 'masked',
     }
 
-    class { 'nscd': }
+    include ::nscd
 
     include ::selinux
 
@@ -27,7 +27,7 @@ class oracledb::preinstalltasks inherits oracledb {
       }
     }
 
-    class { 'tuned': }
+    include ::tuned
 
     tuned::profile { 'oracledb':
       enable  => true,
