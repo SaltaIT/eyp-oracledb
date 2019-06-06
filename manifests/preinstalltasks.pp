@@ -47,27 +47,27 @@ class oracledb::preinstalltasks inherits oracledb {
     include ::sysctl
 
     sysctl::set { 'vm.swappiness':
-      value => '0',
+      value => $oracledb::sysctl_vm_swappiness,
     }
 
     sysctl::set { 'vm.dirty_background_ratio':
-      value => '3',
+      value => $oracledb::sysctl_vm_dirty_background_ratio,
     }
 
     sysctl::set { 'vm.dirty_ratio':
-      value => '15',
+      value => $oracledb::sysctl_vm_dirty_ratio,
     }
 
     sysctl::set { 'vm.dirty_expire_centisecs':
-      value => '500',
+      value => $oracledb::sysctl_vm_dirty_expire_centisecs,
     }
 
     sysctl::set { 'vm.dirty_writeback_centisecs':
-      value => '100',
+      value => $oracledb::sysctl_vm_dirty_writeback_centisecs,
     }
 
     sysctl::set { 'kernel.randomize_va_space':
-      value => '0',
+      value => $sysctl_kernel_randomize_va_space,
     }
 
     sysctl::set { 'kernel.sem':
@@ -82,7 +82,7 @@ class oracledb::preinstalltasks inherits oracledb {
       # shmall = shmmax/kernel.shmmni
 
       sysctl::set { 'kernel.shmmax':
-        value => ceiling(sprintf('%f', $::memorysize_mb)*786432),
+        value => $sysctl_kernel_shmmax,
       }
 
       if($oracledb::kernel_shmall!=undef)
@@ -133,7 +133,7 @@ class oracledb::preinstalltasks inherits oracledb {
     # kernel.panic_on_oops  =   1
 
     sysctl::set { 'kernel.panic_on_oops':
-      value => '1',
+      value => $oracledb::sysctl_kernel_panic_on_oops,
     }
 
     # fs.file-max        =      6815744
@@ -151,25 +151,25 @@ class oracledb::preinstalltasks inherits oracledb {
     # net.core.rmem_default    =     262144
 
     sysctl::set { 'net.core.rmem_default':
-      value => '262144',
+      value => $oracledb::sysctl_net_core_rmem_default,
     }
 
     # net.core.rmem_max        =    4194304
 
     sysctl::set { 'net.core.rmem_max':
-      value => '4194304',
+      value => $oracledb::sysctl_net_core_rmem_max,
     }
 
     # net.core.wmem_default    =    262144
 
     sysctl::set { 'net.core.wmem_default':
-      value => '262144',
+      value => $oracledb::sysctl_net_core_wmem_default,
     }
 
     # net.core.wmem_max        =   1048576
 
     sysctl::set { 'net.core.wmem_max':
-      value => '1048576',
+      value => $oracledb::sysctl_net_core_wmem_max,
     }
 
     # kernel.hostname =  hostname
@@ -181,7 +181,7 @@ class oracledb::preinstalltasks inherits oracledb {
     # vm.nr_hugepages= (60% memoria total en MB / 2) +2
 
     sysctl::set { 'vm.nr_hugepages':
-      value => ceiling(sprintf('%f', $::memorysize_mb)*0.3)+2,
+      value => $oracledb::sysctl_vm_nr_hugepages,
     }
 
     # net.ipv4.ip_local_port_range = 9000 65500

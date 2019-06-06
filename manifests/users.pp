@@ -37,7 +37,7 @@ class oracledb::users inherits oracledb {
   pam::limit { 'oracle hard nproc':
     domain => 'oracle',
     item   => 'nproc',
-    value  => '16384',
+    value  => $oracledb::limit_hard_nproc_oracle,
     type   => 'hard',
   }
 
@@ -53,7 +53,7 @@ class oracledb::users inherits oracledb {
   pam::limit { 'oracle hard nofile':
     domain => 'oracle',
     item   => 'nofile',
-    value  => '65536',
+    value  => $oracledb::limit_hard_nofile_oracle,
     type   => 'hard',
   }
 
@@ -62,7 +62,7 @@ class oracledb::users inherits oracledb {
   pam::limit { 'stack oracle':
     domain => 'oracle',
     item   => 'stack',
-    value  => '10240',
+    value  => $oracledb::limit_stack_oracle,
   }
 
   # oracle              soft    core    4194304
@@ -70,7 +70,7 @@ class oracledb::users inherits oracledb {
   pam::limit { 'core oracle':
     domain => 'oracle',
     item   => 'core',
-    value  => '4194304',
+    value  => $oracledb::limit_core_oracle,
   }
 
   if($oracledb::createoracleusers)
@@ -159,7 +159,7 @@ class oracledb::users inherits oracledb {
       pam::limit { 'grid hard nofile':
         domain => 'grid',
         item   => 'nofile',
-        value  => '65536',
+        value  => $oracledb::limit_hard_nofile_grid,
         type   => 'hard',
       }
     }

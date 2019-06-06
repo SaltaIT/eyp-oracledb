@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.2.6
+
+* added more variables to be able to customize default limits for oracle and grid users
+* added more variables to be able to customize default sysctl settings
+
 ## 0.2.5
 
 * added configurable limits:

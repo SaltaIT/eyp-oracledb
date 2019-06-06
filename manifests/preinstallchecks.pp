@@ -16,7 +16,7 @@ class oracledb::preinstallchecks inherits oracledb {
 
   if($current_mode!='disabled')
   {
-    err('SELinux not disabled, reboot required nigga')
+    err('SELinux not disabled, reboot is mandatory')
   }
 
   if($::fqdn !~ /(?=^.{4,253}$)(^((?!-)[a-zA-Z0-9-]{1,63}(?<!-)\.)+[a-zA-Z]{2,63}$)/)
