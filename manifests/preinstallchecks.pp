@@ -11,7 +11,7 @@ class oracledb::preinstallchecks inherits oracledb {
         ($::eyp_grub2_kernel_cmdline  =~ /transparent_hugepage=never/)
       )
   {
-    err('transparent_hugepage=never not present, reboot required nigga')
+    err('transparent_hugepage=never not present, reboot required')
   }
 
   if($current_mode!='disabled')
