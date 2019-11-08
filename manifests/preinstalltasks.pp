@@ -30,8 +30,8 @@ class oracledb::preinstalltasks inherits oracledb {
     include ::tuned
 
     tuned::profile { 'oracledb':
-      enable  => true,
-      vm      => { 'transparent_huge_pages' => 'never' },
+      enable => true,
+      vm     => { 'transparent_huge_pages' => 'never' },
       # sysctl  => {
       #               'vm.swappiness'                => '0',
       #               'vm.dirty_background_ratio'    => '3',
