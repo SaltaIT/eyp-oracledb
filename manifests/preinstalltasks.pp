@@ -41,7 +41,6 @@ class oracledb::preinstalltasks inherits oracledb {
       #               'kernel.randomize_va_space'    => '0',
       #               'kernel.sem'                   => '250 32000 100 128',
       #             },
-      require => Class['tuned'],
     }
 
     include ::sysctl

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.8
+
+* bugfix tuned
+
 ## 0.2.7
 
 * removed add_stage flag
