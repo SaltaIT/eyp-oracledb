@@ -13,7 +13,7 @@ class oracledb::preinstalltasks inherits oracledb {
     include ::firewalld
 
     class { 'chronyd':
-      ensure => 'masked',
+      service_ensure => 'masked',
     }
 
     include ::nscd

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.0
+
+* updated to **eyp-chronyd v0.2** 
+
 ## 0.2.8
 
 * bugfix tuned
