@@ -79,7 +79,6 @@ class oracledb(
   # vm.nr_hugepages = Total SGA in GB * 1024 / 2MB +2
   # 20GB * 1024 = 20480MB / 2MB (Hugepagesize) = 10240 Hugepages +2
 
-  $sysctl_kernel_shmmni_value = $sysctl_kernel_shmmni
   $sga_mb = $sga_gb*1024
 
   if($sga_mb>$::memorysize_mb)
