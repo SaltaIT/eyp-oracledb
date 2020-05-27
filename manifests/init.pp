@@ -55,10 +55,11 @@ class oracledb(
   #
   # 1024*0.95 = 972.8
 
-  if($memlock_factor > 1)
-  {
-    fail('memlock factor is greather than 1, should be between 0 and 1')
-  }
+  # TODO: error de comparacio
+  # if($memlock_factor > 1)
+  # {
+  #   fail('memlock factor is greather than 1, should be between 0 and 1')
+  # }
 
   $memlock_calc = 1024*$memlock_factor
   $limit_memlock_all = ceiling(sprintf('%f', $::memorysize_mb)*$memlock_calc)
