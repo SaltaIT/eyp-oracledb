@@ -95,7 +95,7 @@ class oracledb(
     $sysctl_kernel_shmmni_value = $sysctl_kernel_shmmni
   }
 
-  if $sysctl_vm_nr_hugepages==undef)
+  if($sysctl_vm_nr_hugepages==undef)
   {
     $sysctl_vm_nr_hugepages_value_pre=$sga_mb/2
     $sysctl_vm_nr_hugepages_value=ceiling(sprintf('%f', $sysctl_vm_nr_hugepages_value_pre+2))
