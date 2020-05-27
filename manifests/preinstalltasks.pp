@@ -73,59 +73,16 @@ class oracledb::preinstalltasks inherits oracledb {
       value => $oracledb::kernel_sem,
     }
 
-    if($::memorysize_mb>=16384)
-    {
-      # mes de 16G
-      # shmmax = 50% de la memoria total en bytes
-
-      # shmall = shmmax/kernel.shmmni
-
-      sysctl::set { 'kernel.shmmax':
-        value => $oracledb::sysctl_kernel_shmmax,
-      }
-
-      if($oracledb::kernel_shmall!=undef)
-      {
-        $kernel_shmall_value = $oracledb::kernel_shmall
-      }
-      else
-      {
-        $kernel_shmall_value = ceiling(ceiling(sprintf('%f', $::memorysize_mb)*786432)/4096)
-      }
-
-      sysctl::set { 'kernel.shmall':
-        value => $kernel_shmall_value,
-      }
-    }
-    else
-    {
-      # menys de 16G
-      # shmmax = 50% de la memoria total en bytes
-
-      # shmall = shmmax/kernel.shmmni
-
-      if($oracledb::kernel_shmmax!=undef)
-      {
-        $kernel_shmmax_value = $oracledb::kernel_shmmax
-      }
-      else
-      {
-        $kernel_shmmax_value = ceiling(sprintf('%f', $::memorysize_mb)*524288)
-      }
-
-      sysctl::set { 'kernel.shmmax':
-        value => $kernel_shmmax_value,
-      }
-
-      sysctl::set { 'kernel.shmall':
-        value => ceiling(ceiling(sprintf('%f', $::memorysize_mb)*524288)/4096),
-      }
+    sysctl::set { 'kernel.shmmax':
+      value => $oracledb::sysctl_kernel_shmmax_value,
     }
 
-    # kernel.shmmni        =      4096
+    sysctl::set { 'kernel.shmall':
+      value => $oracledb::sysctl_kernel_shmall_value,
+    }
 
     sysctl::set { 'kernel.shmmni':
-      value => $oracledb::kernel_shmmni,
+      value => $oracledb::sysctl_kernel_shmmni_value,
     }
 
 

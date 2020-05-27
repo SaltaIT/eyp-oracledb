@@ -1,8 +1,12 @@
 # CHANGELOG
 
+## 0.4.0
+
+* config rework to base the settings on the SGA size in GB
+
 ## 0.3.0
 
-* updated to **eyp-chronyd v0.2** 
+* updated to **eyp-chronyd v0.2**
 
 ## 0.2.8
 

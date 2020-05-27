@@ -1,4 +1,4 @@
-class oracledb::users inherits oracledb {
+class oracledb::users() inherits oracledb {
 
   Exec {
     path => '/bin:/sbin:/usr/bin:/usr/sbin',
@@ -6,16 +6,12 @@ class oracledb::users inherits oracledb {
 
   include ::pam
 
-  if($oracledb::memlock!=undef)
+  if($oracle::limit_memlock_all!=undef)
   {
-    #Hugepages
-    # * soft memlock 90% total memoria en KB
-    # * hard memlock 90% total memoria en KB
-
     pam::limit { 'memlock *':
       domain => '*',
       item   => 'memlock',
-      value  => $oracledb::memlock,
+      value  => $oracle::limit_memlock_all,
     }
   }
 
