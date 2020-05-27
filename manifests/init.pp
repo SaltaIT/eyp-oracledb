@@ -61,7 +61,7 @@ class oracledb(
   }
 
   $memlock_calc = 1024*$memlock_factor
-  $limit_memlock_all = ceiling(sprintf('%f', $::memorysize_mb)*$memlock_calc),
+  $limit_memlock_all = ceiling(sprintf('%f', $::memorysize_mb)*$memlock_calc)
 
   # /etc/sysct.conf
   #
