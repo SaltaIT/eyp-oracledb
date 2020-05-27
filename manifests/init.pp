@@ -84,7 +84,7 @@ class oracledb(
 
   if($sga_mb>$::memorysize_mb)
   {
-    fail("SGA cannot be larger than the physical RAM: ${sga_mb} vs ${::memorysize_mb}")
+    fail("SGA cannot be larger than the physical RAM: SGA(${sga_mb}) vs RAM(${::memorysize_mb})")
   }
 
   if($sysctl_kernel_shmmni==undef)
