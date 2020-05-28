@@ -9,7 +9,7 @@ class oracledb::users() inherits oracledb {
   pam::limit { 'memlock *':
     domain => '*',
     item   => 'memlock',
-    value  => $oracle::limit_memlock_all_value,
+    value  => $oracledb::limit_memlock_all_value,
   }
 
   exec { 'oracle ulimits':
