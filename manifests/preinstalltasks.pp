@@ -137,7 +137,7 @@ class oracledb::preinstalltasks inherits oracledb {
     # vm.nr_hugepages= (60% memoria total en MB / 2) +2
 
     sysctl::set { 'vm.nr_hugepages':
-      value => $oracledb::sysctl_vm_nr_hugepages,
+      value => $oracledb::sysctl_vm_nr_hugepages_value,
     }
 
     # net.ipv4.ip_local_port_range = 9000 65500
