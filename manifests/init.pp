@@ -61,7 +61,7 @@ class oracledb(
   $memlock_calc = 1024*$memlock_factor
   if($limit_memlock_all==undef)
   {
-    $limit_memlock_all_value = ceiling(sprintf('%f', $::memorysize_mb)*$memlock_calc*1024*1024)
+    $limit_memlock_all_value = ceiling(sprintf('%f', $::memorysize_mb)*$memlock_calc*1024)
   }
   else
   {
