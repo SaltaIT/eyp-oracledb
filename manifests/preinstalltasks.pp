@@ -185,13 +185,6 @@ class oracledb::preinstalltasks inherits oracledb {
           fstype  => 'tmpfs',
           options => "size=${oracledb::memory_target}",
         }
-
-        if($oracledb::add_stage)
-        {
-          Mount['/dev/shm'] {
-            stage => 'eyp-oracle-db',
-          }
-        }
       }
     }
 
