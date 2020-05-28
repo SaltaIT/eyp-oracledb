@@ -36,8 +36,6 @@ class oracledb(
                 $limit_stack_oracle                  = '10240',
                 $limit_soft_nofile_grid              = '1024',
                 $limit_hard_nofile_grid              = '65536',
-                $limit_soft_memlock_all              = ceiling(sprintf('%f', $::memorysize_mb)*972.8),
-                $limit_hard_memlock_all              = ceiling(sprintf('%f', $::memorysize_mb)*972.8),
                 #
                 $memlock_factor                      = 0.95,
                 $sga_gb                              = 16,
@@ -45,6 +43,7 @@ class oracledb(
                 $sysctl_kernel_shmmni                = undef,
                 $sysctl_kernel_shmall                = undef,
                 $sysctl_vm_nr_hugepages              = undef,
+                $limit_memlock_all                   = undef,
                 #
                 $validate_resulting_values           = true,
               ) inherits oracledb::params {
@@ -60,7 +59,15 @@ class oracledb(
   # convertim string a number
 
   $memlock_calc = 1024*$memlock_factor
-  $limit_memlock_all = ceiling(sprintf('%f', $::memorysize_mb)*$memlock_calc)
+  if($limit_memlock_all==undef)
+  {
+    $limit_memlock_all_value = ceiling(sprintf('%f', $::memorysize_mb)*$memlock_calc)
+  }
+  else
+  {
+    $limit_memlock_all_value = $limit_memlock_all
+  }
+
 
   # /etc/sysct.conf
   #
@@ -134,7 +141,7 @@ class oracledb(
     if($memlock_factor*1 > 1)
     {
       fail('memlock factor is greather than 1, should be between 0 and 1')
-    }  
+    }
   }
 
   class { '::oracledb::users':

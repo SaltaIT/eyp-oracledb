@@ -6,13 +6,10 @@ class oracledb::users() inherits oracledb {
 
   include ::pam
 
-  if($oracle::limit_memlock_all!=undef)
-  {
-    pam::limit { 'memlock *':
-      domain => '*',
-      item   => 'memlock',
-      value  => $oracle::limit_memlock_all,
-    }
+  pam::limit { 'memlock *':
+    domain => '*',
+    item   => 'memlock',
+    value  => $oracle::limit_memlock_all_value,
   }
 
   exec { 'oracle ulimits':
