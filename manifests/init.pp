@@ -45,6 +45,8 @@ class oracledb(
                 $sysctl_kernel_shmmni                = undef,
                 $sysctl_kernel_shmall                = undef,
                 $sysctl_vm_nr_hugepages              = undef,
+                #
+                $validate_resulting_values           = true,
               ) inherits oracledb::params {
 
 
@@ -56,10 +58,6 @@ class oracledb(
   # 1024*0.95 = 972.8
 
   # convertim string a number
-  if($memlock_factor*1 > 1)
-  {
-    fail('memlock factor is greather than 1, should be between 0 and 1')
-  }
 
   $memlock_calc = 1024*$memlock_factor
   $limit_memlock_all = ceiling(sprintf('%f', $::memorysize_mb)*$memlock_calc)
@@ -81,10 +79,9 @@ class oracledb(
 
   $sga_mb = $sga_gb*1024
 
-  if($sga_mb>$::memorysize_mb)
-  {
-    fail("SGA cannot be larger than the physical RAM: SGA(${sga_mb}) vs RAM(${::memorysize_mb})")
-  }
+  #
+  # calculate valuess
+  #
 
   if($sysctl_kernel_shmmni==undef)
   {
@@ -123,6 +120,22 @@ class oracledb(
     $sysctl_kernel_shmall_value=$sysctl_kernel_shmall
   }
 
+  #
+  # validations
+  #
+
+  if($validate_resulting_values)
+  {
+    if($sga_mb>$::memorysize_mb)
+    {
+      fail("SGA cannot be larger than the physical RAM: SGA(${sga_mb}) vs RAM(${::memorysize_mb})")
+    }
+
+    if($memlock_factor*1 > 1)
+    {
+      fail('memlock factor is greather than 1, should be between 0 and 1')
+    }  
+  }
 
   class { '::oracledb::users':
   }
