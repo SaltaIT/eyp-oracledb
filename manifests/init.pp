@@ -61,7 +61,7 @@ class oracledb(
   $memlock_calc = 1024*$memlock_factor
   if($limit_memlock_all==undef)
   {
-    $limit_memlock_all_value = ceiling(sprintf('%f', $::memorysize_mb)*$memlock_calc)
+    $limit_memlock_all_value = ceiling(sprintf('%f', $::memorysize_mb)*$memlock_calc*1024*1024)
   }
   else
   {
@@ -101,7 +101,7 @@ class oracledb(
 
   if($sysctl_vm_nr_hugepages==undef)
   {
-    $sysctl_vm_nr_hugepages_value_pre=$sga_mb/2
+    $sysctl_vm_nr_hugepages_value_pre=$sga_mb*1024*1024/2
     $sysctl_vm_nr_hugepages_value=ceiling(sprintf('%f', $sysctl_vm_nr_hugepages_value_pre+2))
   }
   else
@@ -111,7 +111,7 @@ class oracledb(
 
   if($sysctl_kernel_shmmax==undef)
   {
-    $sysctl_kernel_shmmax_value=ceiling(sprintf('%f', $sga_mb))
+    $sysctl_kernel_shmmax_value=ceiling(sprintf('%f', $sga_mb*1024*1024))
   }
   else
   {
