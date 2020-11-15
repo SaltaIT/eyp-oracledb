@@ -1,6 +1,6 @@
 # oracledb
 
-**NTTCom-MS/eyp-oracledb**: [![Build Status](https://travis-ci.org/NTTCom-MS/eyp-oracledb.png?branch=master)](https://travis-ci.org/NTTCom-MS/eyp-oracledb)
+**SaltaIT/eyp-oracledb**: [![Build Status](https://travis-ci.org/SaltaIT/eyp-oracledb.png?branch=master)](https://travis-ci.org/SaltaIT/eyp-oracledb)
 
 #### Table of Contents
 
