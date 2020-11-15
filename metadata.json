@@ -1,20 +1,20 @@
 {
   "name": "eyp-oracledb",
-  "version": "0.4.0",
-  "author": "eyp",
+  "version": "4.0.0",
+  "author": "Jordi Prats",
   "summary": "OracleDB role",
   "license": "Apache-2.0",
-  "source": "https://github.com/NTTCom-MS/eyp-oracledb",
-  "project_page": "https://github.com/NTTCom-MS/eyp-oracledb",
-  "issues_url": "https://github.com/NTTCom-MS/eyp-oracledb/issues",
+  "source": "https://github.com/SaltaIT/eyp-oracledb",
+  "project_page": "https://github.com/SaltaIT/eyp-oracledb",
+  "issues_url": "https://github.com/SaltaIT/eyp-oracledb/issues",
   "dependencies": [
     {"name":"puppetlabs/stdlib","version_requirement":">= 4.6.0 < 9.9.9"},
-    {"name":"eyp/ntp","version_requirement":">= 0.1.0 < 0.2.0"},
-    {"name":"eyp/firewalld","version_requirement":">= 0.1.0 < 0.2.0"},
+    {"name":"eyp/ntp","version_requirement":">= 1.0.0 < 2.0.0"},
+    {"name":"eyp/firewalld","version_requirement":">= 1.0.0 < 2.0.0"},
     {"name":"eyp/tuned","version_requirement":">= 0.1.1 < 0.3.0"},
     {"name":"eyp/grub2","version_requirement":">= 0.1.6 < 0.2.0"},
-    {"name":"eyp/chronyd","version_requirement":">= 0.2.0 < 0.3.0"},
-    {"name":"eyp/nscd","version_requirement":">= 0.1.0 < 0.2.0"},
+    {"name":"eyp/chronyd","version_requirement":">= 2.0.0 < 3.0.0"},
+    {"name":"eyp/nscd","version_requirement":">= 1.0.0 < 2.0.0"},
     {"name":"eyp/epel","version_requirement":">= 3.1.11 < 4.0.0"},
     {"name":"eyp/selinux","version_requirement":">= 0.1.8 < 0.2.0"},
     {"name":"eyp/pam","version_requirement":">= 0.1.2 < 0.2.0"},
@@ -33,7 +33,7 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 3.8.0"
+      "version_requirement": ">= 4.0.0"
     }
   ]
 }
